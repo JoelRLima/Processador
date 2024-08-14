@@ -19,18 +19,15 @@ ARCHITECTURE behav OF ROM IS
     --- CARREGAR CONSTANTE: 0011 R3R2R1R0 C7C6C5C4C3C2C1C0
     --- SUBTRAIR: 0100 RA3RA2RA1RA0 RB3RB2RB1RB0 RC3RC2RC1RC0
     --- SALTAR SE ZERO: 0101 RA3RA2RA1RA0 O7O6O5O4O3O2O1O0
-    --- SALTAR SE MAIOR: 0110 RA3RA2RA1RA0 RB3RB2RB1RB0 RC3RC2RC1RC0
      CONSTANT mem: rom_type := (
-        0 => "0000000000000000", -- Carregar D[0] em RF[0]
-        1 => "0000010100000001", -- Carregar D[1] em RF[1]
-        2 => "0010000000010010", -- Somar RF[0] + RF[1] => RF[2]
-        3 => "0001001000000010", -- Armazenar RF[2] em D[2]
-        4 => "0000001100001000", -- Carregar D[8] em RF[3]
-        5 => "0110001000000011", -- Saltar se RF[2] > RF[1] para RF[3]
-        6 => "0001000000000111", -- Armazenar RF[3] em D[7]
-        7 => "0000000100000111", -- Carregar D[7] em RF[0]
-        8 => "0001000000000000", -- Armazenar RF[0] em D[0]
-		  9 => "0000000000000001", -- Carregar D[1] em RF[0]
+        0 => "0011000100000011", -- Carregar D[0] em RF[0]
+        1 => "0011001000000010", -- Carregar D[1] em RF[1]
+        2 => "0010001100100001", -- Somar RF[0] + RF[1] => RF[2]
+        3 => "0001001100000000",
+		  4 => "0110000100100100",
+		  5 => "0001010000000010",
+		  6 => "0111000100100011",
+		  7 => "0001001100000010",
         others => "0000000000000000"
             );
 
