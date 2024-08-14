@@ -50,6 +50,9 @@ component ALU is
 end component;
 
 begin
+
+nulo <= "0000000000000000";
+
 u0 : mux_4x1_16bits port map(I0 => ALU_out, I1 => R_data, I2 => "00000000"&RF_w_data, I3 => nulo, s1 => RF_s1, s0 => RF_s0, D => mux_out);
 u1 : regfile_processador_4x16 port map(clk => clock, W_en => W_wr, Rp_en => Rp_rd, Rq_en => Rq_rd, 
 	W_data => mux_out, W_addr => RF_W_addr, Rp_addr => RF_Rp_addr, Rq_addr => RF_Rq_addr,

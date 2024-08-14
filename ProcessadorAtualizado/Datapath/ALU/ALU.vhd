@@ -33,8 +33,8 @@ architecture behavioral of ALU is
 	component Calc is
 		port(
 			A, B : in std_logic_vector (15 downto 0);
-			f: in std_logic;
-			saida : out std_logic_vector (15 downto 0)
+			subtrai: in std_logic;
+			n : out std_logic_vector (15 downto 0)
 		);
 	end component;
 
@@ -57,7 +57,7 @@ begin
 	u14: abext port map(An =>A(14), Bn=>B(14), x=>x, y=>y, z=>z, iA=>iA(14), iB=>iB(14));
 	u15: abext port map(An =>A(15), Bn=>B(15), x=>x, y=>y, z=>z, iA=>iA(15), iB=>iB(15));	
 	u16 : cinext port map(x=>x, y=>y, z=>z, cin=>cin);
-	u17 : Calc port map(A=>iA, B=>iB, f=>cin, saida=>S);
+	u17 : Calc port map(A=>iA, B=>iB, subtrai=>cin, n=>S);
 	
 end behavioral;
 	

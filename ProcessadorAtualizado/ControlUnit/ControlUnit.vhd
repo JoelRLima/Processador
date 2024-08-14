@@ -68,7 +68,7 @@ component reg4 is
     );
 end component;
 
-component SomSub is
+component Calc is
 	port(
 		A, B : in std_logic_vector(15 downto 0);
 		subtrai : in std_logic;
@@ -87,8 +87,8 @@ BlocoLogico: Controller port map(OP => sig_IR(15 downto 12), IR811 => sig_IR(11 
 										  RF_W_addr => RF_W_addr, RF_Rp_addr => RF_Rp_addr, RF_Rq_addr => RF_Rq_addr, NS => sig_NS, CS => sig_CS);
 InstructionRegister: instreg port map(clk => clock, IR_ld => sig_IR_ld, I => I_data, IR => sig_IR);
 ProgramCounter: pc port map(clk => clock, ld => sig_PC_ld, clr => sig_PC_clr, up => sig_PC_up, load_val => sig_ABmenos1, count => Sig_Iaddr);
-SomaAcomB: SomSub port map(A => sig_Iaddr, B => sig_IR, subtrai => '0', n => sig_AmaisB);
-Somamenosum: SomSub port map(A => sig_AmaisB, B => "0000000000000001", subtrai => '1', n => sig_ABmenos1); 
+SomaAcomB: Calc port map(A => sig_Iaddr, B => sig_IR, subtrai => '0', n => sig_AmaisB);
+Somamenosum: Calc port map(A => sig_AmaisB, B => "0000000000000001", subtrai => '1', n => sig_ABmenos1); 
 RegistradordeEstado: reg4 port map(d => sig_NS, clk => clock, load => '1', reset => '0', q => sig_CS);
 I_addr <= Sig_Iaddr;
 
